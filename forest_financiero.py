@@ -60,6 +60,12 @@ fig, ax = plt.subplots()
 sns.heatmap(mc, annot=True, fmt='d', cmap='Blues', ax=ax )
 st.pyplot(fig)
 
+# Importancia de las características
+importancias = modelo.feature_importances_
+st.subheader("Importancia de las características")
+importancia_ds = pd.DataFrame({"Característica": x.columns, "Importancia":importancias})
+st.bar_chart(importancia_ds.set_index("Característica"))
+
 
 
 
